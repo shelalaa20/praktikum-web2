@@ -103,6 +103,7 @@ echo "Nama: " . $mahasiswa1->getNama() . "<br>";
   <li>Setter digunakan untuk mengubah nilai properti dari suatu objek.</li>
 </ul>
 Output Program
+![Screenshot 2024-09-10 124642](https://github.com/user-attachments/assets/8681deb6-8574-47dd-8027-783b0bdff0cc)
 
 <li>Inheritance</li>
 <p>Kelas dapat mewarisi properti dan metode dari kelas lain. </p>
@@ -121,6 +122,8 @@ parent::__construct($nama);
 
 ```
 <p>Digunakan untuk memanggil constructor dari kelas induk Pengguna sehingga properti nama dapat diinisialisasi dari kelas induk.</p>
+Output Program :
+
 <li>Polymorphism</li>
 <p>Polimorfisme adalah di mana metode yang sama dapat memiliki perilaku yang berbeda tergantung pada objek yang menggunakannya.</p>
 Dalam contoh ini, metode aksesFitur() di kelas Pengguna di-override di kelas Dosen dan Mahasiswa, yang menunjukkan konsep polimorfisme.
