@@ -102,6 +102,7 @@ echo "Nama: " . $mahasiswa1->getNama() . "<br>";
   <li>Getter biasanya digunakan ketika properti kelas dideklarasikan sebagai private atau protected.</li>
   <li>Setter digunakan untuk mengubah nilai properti dari suatu objek.</li>
 </ul>
+
 Output Program
 ![Screenshot 2024-09-10 124642](https://github.com/user-attachments/assets/8681deb6-8574-47dd-8027-783b0bdff0cc)
 
@@ -122,7 +123,9 @@ parent::__construct($nama);
 
 ```
 <p>Digunakan untuk memanggil constructor dari kelas induk Pengguna sehingga properti nama dapat diinisialisasi dari kelas induk.</p>
+
 Output Program :
+![Screenshot 2024-09-10 125334](https://github.com/user-attachments/assets/ace3399a-6873-4f3a-9ec2-e385e246f9ac)
 
 <li>Polymorphism</li>
 <p>Polimorfisme adalah di mana metode yang sama dapat memiliki perilaku yang berbeda tergantung pada objek yang menggunakannya.</p>
@@ -144,6 +147,9 @@ class Mahasiswa extends Pengguna {
 ```
 <p>Polimorfisme terjadi ketika metode aksesFitur() dideklarasikan di kelas induk Pengguna, tetapi kemudian metode ini di-override di kelas turunan (Dosen dan Mahasiswa) dengan implementasi yang berbeda.</p>
 <p>Ketika memanggil aksesFitur() dari objek Dosen, output-nya adalah "Fitur Dosen", dan jika dari objek Mahasiswa, output-nya adalah "Fitur Mahasiswa.</p>
+Output Program :
+
+![Screenshot 2024-09-10 125411](https://github.com/user-attachments/assets/e09028cc-0944-4387-9556-4d5df87bbdf1)
 <li>Abstraction</li>
 <p>Abstraksi adalah untuk mendefinisikan struktur dasar (class abstrak) tanpa memberikan implementasi penuh. Implementasi detailnya diberikan oleh class turunannya.
 
@@ -166,5 +172,9 @@ abstract class Pengguna {
 ```
 <p>abstract class Pengguna: Class ini adalah class abstrak, artinya kita tidak bisa membuat objek langsung dari class ini. Class ini hanya menyediakan kerangka dasar yang harus diikuti oleh class turunannya.</p>
 <p>abstract public function aksesFitur();: Metode ini adalah metode abstrak, yang tidak punya isi atau cara kerja. Class yang mewarisi Pengguna wajib memberikan isi atau implementasi untuk metode ini. Intinya, Pengguna hanya menunjukkan bahwa semua pengguna harus punya metode aksesFitur, tapi tidak menjelaskan bagaimana cara kerjanya.</p>
+Output Program :
+
+![Screenshot 2024-09-10 125434](https://github.com/user-attachments/assets/d22c530b-9262-4b71-a1a3-3d8918ab4242)
+
 </ul>
-</ul>
+
