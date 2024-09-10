@@ -55,12 +55,21 @@ public function tampilkanData() {
                 Jurusan : $this->jurusan";
     }
 ```
+<li>Menampilkan data</li>
+
+```
+echo $mahasiswa1->tampilkanData();
+```
+
+<li>m</li>
+
 </ul>
 <h2>Prinsip OOP</h2>
 <ul>
   <li>Encapsulation</li>
-<p>Menyembunyikan detail implementasi dan hanya memberikan
-akses melalui metode tertentu.</p>
+  <ul>
+<li><p>Menyembunyikan detail implementasi dan hanya memberikan
+akses melalui metode tertentu.</p></li>
   
   ```php
     // Method untuk mendapatkan nilai nama
@@ -73,6 +82,22 @@ akses melalui metode tertentu.</p>
         $this->nama = $nama;
     }
 ```
+<li>Menampilkan data awal</li>
+
+```
+echo "Nama: " . $mahasiswa1->getNama() . "<br>";
+```
+<li>Mengubah nilai properti dengan setter</li>
+
+```
+$mahasiswa1->setNama("Chitoo");
+```
+<li>Menampilkan data setelah diubah</li>
+
+```
+echo "Nama: " . $mahasiswa1->getNama() . "<br>";
+```
+</ul>
 <ul>
   <li>Getter biasanya digunakan ketika properti kelas dideklarasikan sebagai private atau protected.</li>
   <li>Setter digunakan untuk mengubah nilai properti dari suatu objek.</li>
