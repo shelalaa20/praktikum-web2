@@ -60,8 +60,8 @@ public function tampilkanData() {
 ```
 echo $mahasiswa1->tampilkanData();
 ```
-
-<li>m</li>
+Output Program :
+![Screenshot 2024-09-10 123532](https://github.com/user-attachments/assets/304cb550-c4cd-4c95-8c84-d56be24e5946)
 
 </ul>
 <h2>Prinsip OOP</h2>
@@ -102,6 +102,8 @@ echo "Nama: " . $mahasiswa1->getNama() . "<br>";
   <li>Getter biasanya digunakan ketika properti kelas dideklarasikan sebagai private atau protected.</li>
   <li>Setter digunakan untuk mengubah nilai properti dari suatu objek.</li>
 </ul>
+Output Program
+
 <li>Inheritance</li>
 <p>Kelas dapat mewarisi properti dan metode dari kelas lain. </p>
 Deklarasi Pewarisan:
