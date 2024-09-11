@@ -92,6 +92,7 @@
    class Person {
     private $name;
    ```
+   privat : hanaya dapat diakses oleh kelas itu sendiri.
     - Tambahkan metode setter dan getter untuk mengakses dan mengubah nilai atribut name dan studentID.
   ```
 $person1 = new Student("Shela", "230302044");
