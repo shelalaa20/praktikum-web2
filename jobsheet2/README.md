@@ -151,6 +151,7 @@ Nim : 230302055
 Jurusan : Teknik Informatika
 ```
 ## Tugas
+1. Implementasikan kelas Dosen dengan atribut nama, nip, dan mataKuliah.
 ```
 <?php
 // Definisi class Dosen
@@ -160,6 +161,9 @@ class Dosen {
     public $nip;
     public $mataKuliah;
 ```
+Class Dosen memiliki tiga atribut $nama, $nip, dan $mataKuliah, yang semuanya dideklarasikan sebagai public, sehingga bisa diakses dan dimodifikasi dari luar class. Atribut ini digunakan untuk menyimpan informasi terkait identitas dosen (nama, nomor induk pegawai, dan mata kuliah yang diajarkan).
+
+2. Buat metode tampilkanDosen() untuk menampilkan informasi dosen.
 ```
     // Metode untuk menampilkan data dosen
     public function tampilkanData(){
@@ -169,11 +173,14 @@ class Dosen {
     }
 }
 ```
+Metode tampilkanData() pada class Dosen berfungsi untuk menampilkan informasi data dosen, yaitu $nama, $nip, dan $mataKuliah. Metode ini mengembalikan string yang berisi data-data tersebut dengan format yang mudah dibaca (terpisah oleh <br> untuk membuatnya tampil di baris baru saat ditampilkan di browser).
+
+3. Buat objek dari kelas Dosen, dan gunakan metode tampilkanDosen() untuk
+menampilkan informasi tersebut.
 ```
 // Instansiasi objek dari class Dosen
 $dosen1 = new Dosen();
-```
-```
+
 // Mengisi nilai atribut objek
 $dosen1->nama = "Chito";
 $dosen1->nip = "1325465";
@@ -183,6 +190,7 @@ $dosen1->mataKuliah = "Kedokteran Hewan";
 echo $dosen1->tampilkanData();
 ?>
 ```
+Objek dosen1 diinstansiasi dari class Dosen. Kemudian, nilai atribut $nama, $nip, dan $mataKuliah diisi langsung melalui objek, dan akhirnya, metode tampilkanData() dipanggil untuk menampilkan informasi dosen.
 
 Output Program :
 ```
