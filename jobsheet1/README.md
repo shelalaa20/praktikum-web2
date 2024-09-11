@@ -33,20 +33,7 @@ Access Modifier adalah kontrol akses yang menentukan siapa yang bisa melihat ata
   <li>privat : hanaya dapat diakses oleh kelas itu sendiri.</li>
   <li>protected : hanya kelas induk dan turunan yang dapat mengakses.</li>
 </ul>
-  <li>Constructor</li>
-  <p>Constructor adalah metode khusus yang dipanggil secara otomatis ketika sebuah objek dibuat (diinstansiasi). Ini digunakan untuk menginisialisasi objek dengan nilai-nilai awal.</p>
 
-  ```php
-// Constructor
-public function __construct($nama, $nim, $jurusan) {
-    $this->nama = $nama;
-    $this->nim = $nim;
-    $this->jurusan = $jurusan;
-}
-```
-<p>Dalam kode ini, __construct() digunakan untuk menginisialisasi atribut atau properti dari objek yang diinstansiasi.</p>
-  <li>Methods</li>
-  <p>Perilaku yang dimiliki class untuk aksi tertentu.</p>
 
   ```php
 public function tampilkanData() {
@@ -58,18 +45,32 @@ public function tampilkanData() {
 <li>Menampilkan data</li>
 
 ```
+//Instantsiasi Objek
+$mahasiswa1 = new Mahasiswa();
+
+// Mengisi nilai atribut objek
+$mahasiswa1->nama = "Shela Jaya Andini";
+$mahasiswa1->nim = "230302044";
+$mahasiswa1->jurusan = "Teknik Informatika";
+
 echo $mahasiswa1->tampilkanData();
 ```
-Output Program :
-![Screenshot 2024-09-10 123532](https://github.com/user-attachments/assets/304cb550-c4cd-4c95-8c84-d56be24e5946)
+Instansiasi adalah proses pembuatan objek dari sebuah class. Dalam pemrograman berorientasi objek (OOP), class adalah blueprint atau cetak biru, sementara objek adalah instance atau contoh nyata yang dibuat berdasarkan blueprint tersebut.
 
+echo $mahasiswa1->tampilkanData(); adalah perintah untuk menampilkan data yang dihasilkan oleh method tampilkanData() dari objek $mahasiswa1.
+
+Output Program :
+```
+Nama : Shela Jaya Andini
+Nim : 230302044
+Jurusan : Teknik Informatika
+```
 </ul>
 <h2>Prinsip OOP</h2>
 <ul>
   <li>Encapsulation</li>
-  <ul>
-<li><p>Menyembunyikan detail implementasi dan hanya memberikan
-akses melalui metode tertentu.</p></li>
+Menyembunyikan detail implementasi dan hanya memberikan
+akses melalui metode tertentu.
   
   ```php
     // Method untuk mendapatkan nilai nama
@@ -82,56 +83,87 @@ akses melalui metode tertentu.</p></li>
         $this->nama = $nama;
     }
 ```
-<li>Menampilkan data awal</li>
 
+  - Membuat objek Mahasiswa baru dengan data awal
 ```
-echo "Nama: " . $mahasiswa1->getNama() . "<br>";
+$mahasiswa1 = new Mahasiswa();
 ```
-<li>Mengubah nilai properti dengan setter</li>
-
+  - Mengatur nilai properti menggunakan setter
 ```
 $mahasiswa1->setNama("Chitoo");
+$mahasiswa1->setNim("230102078");
+$mahasiswa1->setJurusan("Kedokteran Hewan");
 ```
-<li>Menampilkan data setelah diubah</li>
-
+  - Menampilkan data
 ```
 echo "Nama: " . $mahasiswa1->getNama() . "<br>";
+echo "NIM: " . $mahasiswa1->getNim() . "<br>";
+echo "Jurusan: " . $mahasiswa1->getJurusan() . "<br>";
 ```
-</ul>
 <ul>
   <li>Getter biasanya digunakan ketika properti kelas dideklarasikan sebagai private atau protected.</li>
   <li>Setter digunakan untuk mengubah nilai properti dari suatu objek.</li>
 </ul>
 
 Output Program
-![Screenshot 2024-09-10 124642](https://github.com/user-attachments/assets/8681deb6-8574-47dd-8027-783b0bdff0cc)
-
+```
+Nama: Chitoo
+NIM: 230102078
+Jurusan: Kedokteran Hewan
+```
 <li>Inheritance</li>
-<p>Kelas dapat mewarisi properti dan metode dari kelas lain. </p>
-Deklarasi Pewarisan:
+- Buat class Pengguna dengan atribut nama dan metode getNama().
 
-```php
-class Dosen extends Pengguna {
+```
+// Definisi kelas Pengguna
+class Pengguna {
+    // Properti nama dengan akses protected (dapat diakses oleh kelas turunan)
+    public $nama;
+
+    // Method untuk mendapatkan nilai nama
+    public function getNama() {
+        return $this->nama;
+    }
 }
+```
+
+- Buat class Dosen yang mewarisi class Pengguna dan tambahkan atribut
+mataKuliah.
 
 ```
-<p>extends digunakan untuk mendefinisikan inheritance atau pewarisan antara kelas. </p>
-Memanggil Constructor Kelas Induk:
+class Dosen extends Pengguna {
+    // Properti mataKuliah hanya bisa diakses dalam kelas ini (private)
+    public $mataKuliah;
+```
+extends digunakan untuk mendefinisikan inheritance atau pewarisan antara kelas.
 
-```php
-parent::__construct($nama);
+- Instansiasi objek dari class Dosen dan tampilkan data dosen.
 
 ```
-<p>Digunakan untuk memanggil constructor dari kelas induk Pengguna sehingga properti nama dapat diinisialisasi dari kelas induk.</p>
+$pengguna1 = new Dosen();
+$pengguna1->nama = "Bapak Abda'u";
+$pengguna1->mataKuliah = "Pemrograman Web 2";
 
+$pengguna1->tampilkanData();
+```
 Output Program :
-![Screenshot 2024-09-10 125334](https://github.com/user-attachments/assets/ace3399a-6873-4f3a-9ec2-e385e246f9ac)
+```
+Nama: Bapak Abda'u
+Mata Kuliah: Pemrograman Web 2
+```
 
 <li>Polymorphism</li>
 <p>Polimorfisme adalah di mana metode yang sama dapat memiliki perilaku yang berbeda tergantung pada objek yang menggunakannya.</p>
 Dalam contoh ini, metode aksesFitur() di kelas Pengguna di-override di kelas Dosen dan Mahasiswa, yang menunjukkan konsep polimorfisme.
 
-```php
+- Buat class Pengguna dengan metode aksesFitur().
+```
+class Pengguna {
+    public function aksesFitur()
+```
+- Implementasikan aksesFitur() dengan cara berbeda di class Dosen dan
+Mahasiswa.
+```
 class Dosen extends Pengguna {
     public function aksesFitur() {
         echo "Fitur Dosen";
@@ -143,38 +175,71 @@ class Mahasiswa extends Pengguna {
         echo "Fitur Mahasiswa";
     }
 }
-
+```
+- Instansiasi objek dari class Dosen dan Mahasiswa, lalu panggil metode
+aksesFitur().
+```
+// Instansiasi objek dari Dosen dan Mahasiswa
+$dosen1 = new Dosen();
+$dosen1->aksesFitur();  // Output: Fitur Dosen
+echo "<br>";
+$mahasiswa1 = new Mahasiswa();
+$mahasiswa1->aksesFitur();  // Output: Fitur Mahasiswa
 ```
 <p>Polimorfisme terjadi ketika metode aksesFitur() dideklarasikan di kelas induk Pengguna, tetapi kemudian metode ini di-override di kelas turunan (Dosen dan Mahasiswa) dengan implementasi yang berbeda.</p>
 <p>Ketika memanggil aksesFitur() dari objek Dosen, output-nya adalah "Fitur Dosen", dan jika dari objek Mahasiswa, output-nya adalah "Fitur Mahasiswa.</p>
 Output Program :
 
-![Screenshot 2024-09-10 125411](https://github.com/user-attachments/assets/e09028cc-0944-4387-9556-4d5df87bbdf1)
+```
+Fitur Dosen
+Fitur Mahasiswa
+```
 <li>Abstraction</li>
 <p>Abstraksi adalah untuk mendefinisikan struktur dasar (class abstrak) tanpa memberikan implementasi penuh. Implementasi detailnya diberikan oleh class turunannya.
 
-```php
+- Buat class abstrak Pengguna dengan metode abstrak aksesFitur().
+```
 abstract class Pengguna {
-    protected $nama;
-
-    public function __construct($nama) {
-        $this->nama = $nama;
-    }
-
-    public function getNama() {
-        return $this->nama;
-    }
 
     // Metode abstrak aksesFitur, harus diimplementasikan oleh class turunan
     abstract public function aksesFitur();
 }
+```
+- Implementasikan class Mahasiswa dan Dosen yang mengimplementasikan
+metode abstrak tersebut.
+```
+// Class Dosen 
+class Dosen extends Pengguna {
+    public function aksesFitur() {
+        return "fitur dosen.<br>";
+    }
+}
 
+// Class Mahasiswa 
+class Mahasiswa extends Pengguna {
+    public function aksesFitur() {
+        return "fitur mahasiswa.<br>";
+    }
+}
+```
+- Demonstrasikan dengan memanggil metode aksesFitur() dari objek yang
+diinstansiasi.
+```
+// Instansiasi objek dari class Dosen dan Mahasiswa
+$dosen1 = new Dosen();
+$mahasiswa1 = new Mahasiswa();
+
+// Memanggil metode aksesFitur()
+echo $dosen1->aksesFitur();       
+echo $mahasiswa1->aksesFitur();
 ```
 <p>abstract class Pengguna: Class ini adalah class abstrak, artinya kita tidak bisa membuat objek langsung dari class ini. Class ini hanya menyediakan kerangka dasar yang harus diikuti oleh class turunannya.</p>
 <p>abstract public function aksesFitur();: Metode ini adalah metode abstrak, yang tidak punya isi atau cara kerja. Class yang mewarisi Pengguna wajib memberikan isi atau implementasi untuk metode ini. Intinya, Pengguna hanya menunjukkan bahwa semua pengguna harus punya metode aksesFitur, tapi tidak menjelaskan bagaimana cara kerjanya.</p>
+
 Output Program :
+```
+fitur dosen.
+fitur mahasiswa.
+```
 
-![Screenshot 2024-09-10 125434](https://github.com/user-attachments/assets/d22c530b-9262-4b71-a1a3-3d8918ab4242)
-
-</ul>
 
