@@ -45,11 +45,11 @@
     ?>
     ```
 
-  -output program :
-  ```
-  Shela memiliki ID 230302044
-  Rina memiliki ID 230302045
-  ```
+     - output program :
+     ```
+     Shela memiliki ID 230302044
+     Rina memiliki ID 230302045
+     ```
 2. Polymorphism (Polimoefisme)
    Polymorphism memungkinkan satu metode memiliki banyak bentuk, biasanya melalui overriding di kelas turunan. Jadi, objek dapat diperlakukan sebagai bentk umum dan khusus sesuai kebutuhan.
 
@@ -113,6 +113,36 @@ echo $person3->getName()  . " memiliki ID " . $person3->getStudentID() . "<br>";
 5. Abstraction (Abstraksi)
 Abstraction adalah proses menyembunyikan detail implementasi internal dan
 hanya menampilkan fungsionalitas utama kepada pengguna. Ini biasanya dicapai dengan menggunakan kelas abstrak atau antarmuka.
+   - Buat kelas abstrak Course dengan metode abstrak getCourseDetails().
+   ```
+   abstract class Course {
+    abstract public function getCourseDetails();
+
+   ```
+   - Buat kelas OnlineCourse dan OfflineCourse yang mengimplementasikan
+getCourseDetails() untuk memberikan detail yang berbeda.
+   ```
+      class OnlineCourse extends Course {
+       public function getCourseDetails(){
+           return "ini OnlineCourse";
+       }
+   }
+   class OfflineCourse extends Course {
+       public function getCourseDetails(){
+           return "ini OfflineCourse";
+       }
+   }
+   ```
+   - Menampilkan Data
+   ```
+   $course1= new OnlineCourse();
+   echo "Detail : " . $course1->getCourseDetails() . "<br>";
+   $course2= new OfflineCourse();
+   echo "Detail : " . $course2->getCourseDetails();
+   ```
+### Tugas
+
+
 
    
    
