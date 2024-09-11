@@ -111,6 +111,10 @@ echo $person1->getName()  . " memiliki ID " . $person1->getStudentID() . "<br>";
 echo $person3->getName()  . " memiliki ID " . $person3->getStudentID() . "<br>"; 
 ?>
 ```
+   Getter biasanya digunakan ketika properti kelas dideklarasikan sebagai private atau protected.
+   
+   Setter digunakan untuk mengubah nilai properti dari suatu objek.
+   
 5. Abstraction (Abstraksi)
 Abstraction adalah proses menyembunyikan detail implementasi internal dan
 hanya menampilkan fungsionalitas utama kepada pengguna. Ini biasanya dicapai dengan menggunakan kelas abstrak atau antarmuka.
