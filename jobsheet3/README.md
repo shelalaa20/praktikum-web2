@@ -44,7 +44,7 @@
     echo $person2->getName()  . " memiliki ID " . $person2->getStudentID() . "<br>"; 
     ?>
     ```
-
+    - [full code inheritance]()
      - output program :
      ```
      Shela memiliki ID 230302044
@@ -85,6 +85,13 @@
    kelas Student mewarisi dari Person dan mengganti metode getName() dengan versi baru.
    kelas Teacher mewarisi dari Person dan mengganti metode getName() dengan versi baru.
 
+   - [full code polymorphism]()
+   - output program :
+     ```
+     Student Shela memiliki ID 230302044
+     Teacher Rina memiliki ID 230302045
+      ```
+
 3. Encapsulation (Enkapsulasi)
    Encapsulation menyembunyikan detail internal dari sebuah objek dan hanya membiarkan interaksi melalui metode publik yang tersedia, menjaga data internal tetap aman dari perubahan tak terduga.
      - Ubah atribut name dan studentID dalam kelas Student menjadi private.
@@ -94,28 +101,39 @@
    ```
    privat : hanya dapat diakses oleh kelas itu sendiri.
     - Tambahkan metode setter dan getter untuk mengakses dan mengubah nilai atribut name dan studentID.
-  ```
-$person1 = new Student("Shela", "230302044");
-echo $person1->getName()  . " memiliki ID " . $person1->getStudentID() . "<br>"; 
-$person2 = new Teacher("Rina", "230302045");
-echo $person2->getName()  . " memiliki ID " . $person2->getTeacherID() . "<br>"; 
-$person3 = new Student("Bila", "230302000");
-echo $person3->getName()  . " memiliki ID " . $person3->getStudentID() . "<br>";
-//
-echo "<hr>";
-echo "Data setelah diubah<br>";
-$person1->setName("Shela Jaya Andini");
-$person3->setStudentID("230102034");
-//
-echo $person1->getName()  . " memiliki ID " . $person1->getStudentID() . "<br>"; 
-echo $person3->getName()  . " memiliki ID " . $person3->getStudentID() . "<br>"; 
-?>
-```
+     ```
+   $person1 = new Student("Shela", "230302044");
+   echo $person1->getName()  . " memiliki ID " . $person1->getStudentID() . "<br>"; 
+   $person2 = new Teacher("Rina", "230302045");
+   echo $person2->getName()  . " memiliki ID " . $person2->getTeacherID() . "<br>"; 
+   $person3 = new Student("Bila", "230302000");
+   echo $person3->getName()  . " memiliki ID " . $person3->getStudentID() . "<br>";
+   //
+   echo "<hr>";
+   echo "Data setelah diubah<br>";
+   $person1->setName("Shela Jaya Andini");
+   $person3->setStudentID("230102034");
+   //
+   echo $person1->getName()  . " memiliki ID " . $person1->getStudentID() . "<br>"; 
+   echo $person3->getName()  . " memiliki ID " . $person3->getStudentID() . "<br>"; 
+   ?>
+   ```
    Getter biasanya digunakan ketika properti kelas dideklarasikan sebagai private atau protected.
    
    Setter digunakan untuk mengubah nilai properti dari suatu objek.
+
+   - [full code encapsulation]()
+   - output program :
+      ```
+      Student Shela memiliki ID 230302044
+      Teacher Rina memiliki ID 230302045
+      Student Bila memiliki ID 230302000
+      Data setelah diubah
+      Student Shela Jaya Andini memiliki ID 230302044
+      Student Bila memiliki ID 230102034
+      ```
    
-5. Abstraction (Abstraksi)
+4. Abstraction (Abstraksi)
 Abstraction adalah proses menyembunyikan detail implementasi internal dan
 hanya menampilkan fungsionalitas utama kepada pengguna. Ini biasanya dicapai dengan menggunakan kelas abstrak atau antarmuka.
    - Buat kelas abstrak Course dengan metode abstrak getCourseDetails().
@@ -126,7 +144,7 @@ hanya menampilkan fungsionalitas utama kepada pengguna. Ini biasanya dicapai den
    ```
    Kelas abstrak `Course` adalah kelas yang tidak bisa dibuat objeknya secara langsung. Fungsinya hanya sebagai kerangka dasar untuk kelas-kelas lain yang mewarisinya. Jadi, kelas ini hanya menyediakan struktur umum yang nantinya harus diisi oleh kelas-kelas turunan yang lebih spesifik.
 
-Method abstrak getCourseDetails() hanya didefinisikan dalam kelas Course tanpa ada implementasinya. Semua kelas yang mewarisi dari Course harus menyediakan isi atau implementasi untuk method ini, menentukan detail yang spesifik sesuai dengan kebutuhan kelas masing-masing.
+   Method abstrak getCourseDetails() hanya didefinisikan dalam kelas Course tanpa ada implementasinya. Semua kelas yang mewarisi dari Course harus menyediakan isi atau implementasi untuk method ini, menentukan detail yang spesifik sesuai dengan kebutuhan kelas masing-masing.
 
    - Buat kelas OnlineCourse dan OfflineCourse yang mengimplementasikan
 getCourseDetails() untuk memberikan detail yang berbeda.
@@ -142,6 +160,10 @@ getCourseDetails() untuk memberikan detail yang berbeda.
        }
    }
    ```
+   Kelas OnlineCourse: Ini adalah turunan dari kelas Course. Di sini, metode getCourseDetails() mengembalikan teks "ini OnlineCourse".
+
+   Kelas OfflineCourse: Sama seperti OnlineCourse, OfflineCourse juga mewarisi kelas Course dan memiliki metode getCourseDetails(). Namun, metode ini mengembalikan teks "ini OfflineCourse".
+   
    - Menampilkan Data
    ```
    $course1= new OnlineCourse();
@@ -149,6 +171,18 @@ getCourseDetails() untuk memberikan detail yang berbeda.
    $course2= new OfflineCourse();
    echo "Detail : " . $course2->getCourseDetails();
    ```
+   Di sini, kamu membuat objek baru $course1 dari kelas OnlineCourse. Ini berarti $course1 sekarang adalah sebuah instance dari kelas OnlineCourse yang memiliki semua sifat dan metode dari kelas induk Course dan metode spesifik dari OnlineCourse.
+   
+   Kemudian, kamu mencetak teks "Detail : " diikuti dengan hasil dari metode getCourseDetails() milik objek $course1. Karena $course1 adalah objek dari kelas OnlineCourse, maka metode getCourseDetails() akan mengembalikan teks "ini OnlineCourse".
+
+   - [full code abstraction]()
+   - output program :
+   ```
+   Detail : ini OnlineCourse
+   Detail : ini OfflineCourse
+   ```
+
+   
 ### Tugas
 
 
