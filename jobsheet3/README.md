@@ -92,7 +92,7 @@
    class Person {
     private $name;
    ```
-   privat : hanaya dapat diakses oleh kelas itu sendiri.
+   privat : hanya dapat diakses oleh kelas itu sendiri.
     - Tambahkan metode setter dan getter untuk mengakses dan mengubah nilai atribut name dan studentID.
   ```
 $person1 = new Student("Shela", "230302044");
@@ -124,6 +124,10 @@ hanya menampilkan fungsionalitas utama kepada pengguna. Ini biasanya dicapai den
     abstract public function getCourseDetails();
 
    ```
+   Kelas abstrak `Course` adalah kelas yang tidak bisa dibuat objeknya secara langsung. Fungsinya hanya sebagai kerangka dasar untuk kelas-kelas lain yang mewarisinya. Jadi, kelas ini hanya menyediakan struktur umum yang nantinya harus diisi oleh kelas-kelas turunan yang lebih spesifik.
+
+Method abstrak getCourseDetails() hanya didefinisikan dalam kelas Course tanpa ada implementasinya. Semua kelas yang mewarisi dari Course harus menyediakan isi atau implementasi untuk method ini, menentukan detail yang spesifik sesuai dengan kebutuhan kelas masing-masing.
+
    - Buat kelas OnlineCourse dan OfflineCourse yang mengimplementasikan
 getCourseDetails() untuk memberikan detail yang berbeda.
    ```
