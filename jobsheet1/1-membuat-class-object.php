@@ -7,12 +7,6 @@ class Mahasiswa {
     public $nim;
     public $jurusan;
 
-    //Constrktor
-    public function __construct($nama, $nim, $jurusan) {
-        $this ->nama = $nama;
-        $this ->nim = $nim;
-        $this ->jurusan = $jurusan;
-    }
     //Metode atau function
     public function tampilkanData() {
         return "Nama : $this->nama<br> 
@@ -21,6 +15,13 @@ class Mahasiswa {
     }
 }
 //Instantsiasi Objek
-$mahasiswa1 = new Mahasiswa("Shela Jaya Andini", "230302044", "Komputer dan Bisnis");
+$mahasiswa1 = new Mahasiswa();
+
+// Mengisi nilai atribut objek
+$mahasiswa1->nama = "Shela Jaya Andini";
+$mahasiswa1->nim = "230302044";
+$mahasiswa1->jurusan = "Teknik Informatika";
+
 echo $mahasiswa1->tampilkanData();
+
 ?>
