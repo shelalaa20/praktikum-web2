@@ -2,7 +2,7 @@
 Menerapkan konsep kelas dan objek dalam PHP melalui serangkaian tugas yang menekankan pada pembuatan dan penggunaan kelas serta objek.
 1. Membuat Class dan Object
    
-a. Definisi Class
+Definisi Class
 ```
 class Mahasiswa {
     // Atribut
@@ -14,7 +14,7 @@ class Mahasiswa {
 
 * public : Mendeklarasikan atribut yang bisa diakses dari luar class.
 
-b. Metode untuk menampilkan data mahasiswa
+Metode untuk menampilkan data mahasiswa
 ```
     public function tampilkanData() {
         return "Nama : $this->nama<br>
@@ -25,13 +25,13 @@ b. Metode untuk menampilkan data mahasiswa
 ```
 * public function tampilkanData(): Metode ini mengembalikan string yang menampilkan informasi mahasiswa dalam format HTML. public berarti metode ini dapat diakses dari luar class.
 
-c. Instansiasi objek dari class Mahasiswa
+Instansiasi objek dari class Mahasiswa
 ```
 $Mahasiswa1 = new Mahasiswa();
 ```
 * Instansiasi: Proses pembuatan objek baru dari class menggunakan keyword new. Di sini, $Mahasiswa1 adalah objek dari class Mahasiswa.
 
-e. Inisialisasi
+Inisialisasi
 ```
 // Mengisi nilai atribut objek
 $Mahasiswa1->nama = "Shela Jaya Andini";
@@ -46,8 +46,12 @@ echo $Mahasiswa1->tampilkanData();
   
 * Menampilkan Data: Memanggil metode tampilkanData() untuk menampilkan informasi mahasiswa di browser.
   
-* Output Program :
-xxxxx
+Output Program :
+```
+Nama : Shela Jaya Andini
+Nim : 230302044
+Jurusan : Teknik Informatika
+```
 2. Implementasi Contruktor
 ```
     public function __construct($nama, $nim, $jurusan) {
@@ -67,80 +71,61 @@ $Mahasiswa1 = new Mahasiswa("Shela Jaya Andini", "230302044", "Teknik Informatik
 echo $Mahasiswa1->tampilkanData();
 ```
 Instansiasi dengan Constructor: Ketika objek Mahasiswa1 dibuat, constructor langsung menginisialisasi atribut objek dengan nilai yang diberikan.
+
+Output Program :
+```
+Nama : Shela Jaya Andini
+Nim : 230302044
+Jurusan : Teknik Informatika
+```
+
 3. Membuat Metode Tambahan
 ```
-<?php
-// Definisi class Mahasiswa
-class Mahasiswa {
-    // Atribut
-    public $nama;
-    public $nim;
-    public $jurusan;
-
-    // Constructor untuk menginisialisasi atribut saat objek dibuat
-    public function __construct($nama, $nim, $jurusan) {
-        $this->nama = $nama;
-        $this->nim = $nim;
-        $this->jurusan = $jurusan;
-    }
-
-    // Metode untuk menampilkan data mahasiswa
-    public function tampilkanData() {
-        return "Nama : $this->nama<br>
-                Nim  : $this->nim<br>
-                Jurusan : $this->jurusan<br><br>";
-    }
-
     // Metode untuk mengupdate jurusan
     public function updateJurusan($jurusanBaru) {
         // Mengubah nilai atribut jurusan dengan jurusan baru
         $this->jurusan = $jurusanBaru;
     }
 }
-
+```
+Metode updateJurusan digunakan untuk mengubah nilai atribut jurusan dari objek yang terkait dengan nilai baru yang diberikan. Metode ini berguna ketika ingin mengubah informasi jurusan dari sebuah objek yang sudah ada di dalam program Anda.
+```
 // Instansiasi objek dengan nilai awal
 $Mahasiswa1 = new Mahasiswa("Shela Jaya Andini", "230302044", "Teknik Informatika");
-
 // Menampilkan data mahasiswa sebelum jurusan diubah
 echo $Mahasiswa1->tampilkanData();
 
 // Mengubah jurusan menggunakan metode updateJurusan
 $Mahasiswa1->updateJurusan("Pendidikan Jasmani");
-
 // Menampilkan data mahasiswa setelah jurusan diubah
 echo $Mahasiswa1->tampilkanData();
-?>
+```
+Metode updateJurusan() digunakan untuk mengubah jurusan mahasiswa dari "Teknik Informatika" menjadi "Pendidikan Jasmani".
+
+Setelah perubahan jurusan, metode tampilkanData() dipanggil lagi untuk menampilkan data terbaru. Pada titik ini, jurusan telah berubah menjadi "Pendidikan Jasmani".
+
+Output Program :
+```
+Nama : Shela Jaya Andini
+Nim : 230302044
+Jurusan : Teknik Informatika
+
+Nama : Shela Jaya Andini
+Nim : 230302044
+Jurusan : Pendidikan Jasmani
 ```
 4. Penggunaan Atribut dan Metode
 ```
-<?php
-// Definisi class Mahasiswa
-class Mahasiswa {
-    // Atribut
-    public $nama;
-    public $nim;
-    public $jurusan;
-
-    // Constructor untuk menginisialisasi atribut saat objek dibuat
-    public function __construct($nama, $nim, $jurusan) {
-        $this->nama = $nama;
-        $this->nim = $nim;
-        $this->jurusan = $jurusan;
-    }
-
-    // Metode untuk menampilkan data mahasiswa
-    public function tampilkanData() {
-        return "Nama : $this->nama<br>
-                Nim  : $this->nim<br>
-                Jurusan : $this->jurusan<br><br>";
-    }
-
     // Metode setter untuk mengubah nilai nim
     public function setNim($nim) {
         $this->nim = $nim;
     }
 }
+```
+Setter adalah metode yang digunakan untuk mengubah nilai suatu atribut (variabel) dari sebuah objek secara aman dan terkontrol.
 
+Metode setNim() digunakan untuk mengubah nilai NIM (Nomor Induk Mahasiswa) pada objek mahasiswa. Metode ini memungkinkan pengguna untuk memperbarui nilai NIM secara dinamis setelah objek mahasiswa dibuat.
+```
 // Instansiasi objek dengan nilai awal
 $Mahasiswa1 = new Mahasiswa("Shela Jaya Andini", "230302044", "Teknik Informatika");
 
@@ -152,9 +137,59 @@ $Mahasiswa1->setNim("230302055");
 
 // Menampilkan data mahasiswa setelah nim diubah
 echo $Mahasiswa1->tampilkanData();
+```
+Objek Mahasiswa dapat digunakan untuk menyimpan dan mengelola informasi dasar tentang seorang mahasiswa, seperti nama, NIM, dan jurusan, serta menyediakan metode untuk mengubah dan menampilkan informasi ini dengan mudah.
+
+Output Program :
+```
+Nama : Shela Jaya Andini
+Nim : 230302044
+Jurusan : Teknik Informatika
+
+Nama : Shela Jaya Andini
+Nim : 230302055
+Jurusan : Teknik Informatika
+```
+## Tugas
+```
+<?php
+// Definisi class Dosen
+class Dosen {
+    // Atribut
+    public $nama;
+    public $nip;
+    public $mataKuliah;
+```
+```
+    // Metode untuk menampilkan data dosen
+    public function tampilkanData(){
+        return "Nama : $this->nama<br>
+                NIP : $this->nip<br>
+                Mata Kuliah : $this->mataKuliah<br><br>";
+    }
+}
+```
+```
+// Instansiasi objek dari class Dosen
+$dosen1 = new Dosen();
+```
+```
+// Mengisi nilai atribut objek
+$dosen1->nama = "Chito";
+$dosen1->nip = "1325465";
+$dosen1->mataKuliah = "Kedokteran Hewan";
+
+// Menampilkan data dosen
+echo $dosen1->tampilkanData();
 ?>
 ```
 
+Output Program :
+```
+Nama : Chito
+NIP : 1325465
+Mata Kuliah : Kedokteran Hewan
+```
 
 
    
