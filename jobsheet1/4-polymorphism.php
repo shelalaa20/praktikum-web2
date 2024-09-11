@@ -1,15 +1,5 @@
 <?php
 class Pengguna {
-    protected $nama;
-
-    public function getNama() {
-        return $this->nama;
-    }
-
-    public function setNama($nama) {
-        $this->nama = $nama;
-    }
-
     public function aksesFitur() {
         echo  "Fitur Pengguna";
     }
