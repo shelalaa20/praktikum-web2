@@ -53,6 +53,7 @@ Nim : 230302044
 Jurusan : Teknik Informatika
 ```
 2. Implementasi Contruktor
+   
    Constructor adalah metode khusus dalam pemrograman berorientasi objek (OOP) yang digunakan untuk menginisialisasi objek saat dibuat. Constructor dipanggil secara otomatis ketika sebuah objek dari kelas dibuat, dan bertujuan untuk mengatur kondisi awal objek tersebut.
 ```
     public function __construct($nama, $nim, $jurusan) {
