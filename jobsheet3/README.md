@@ -44,7 +44,7 @@
     echo $person2->getName()  . " memiliki ID " . $person2->getStudentID() . "<br>"; 
     ?>
     ```
-    - [full code inheritance]()
+    - [full code inheritance](https://github.com/shelalaa20/praktikum-web2/blob/main/jobsheet3/1-inheritance.php)
      - output program :
      ```
      Shela memiliki ID 230302044
@@ -85,7 +85,7 @@
    kelas Student mewarisi dari Person dan mengganti metode getName() dengan versi baru.
    kelas Teacher mewarisi dari Person dan mengganti metode getName() dengan versi baru.
 
-   - [full code polymorphism]()
+   - [full code polymorphism](https://github.com/shelalaa20/praktikum-web2/blob/main/jobsheet3/2-polymorphism.php)
    - output program :
      ```
      Student Shela memiliki ID 230302044
@@ -122,7 +122,7 @@
    
    Setter digunakan untuk mengubah nilai properti dari suatu objek.
 
-   - [full code encapsulation]()
+   - [full code encapsulation](https://github.com/shelalaa20/praktikum-web2/blob/main/jobsheet3/3-encapsulation.php)
    - output program :
       ```
       Student Shela memiliki ID 230302044
@@ -175,7 +175,7 @@ getCourseDetails() untuk memberikan detail yang berbeda.
    
    Kemudian, kamu mencetak teks "Detail : " diikuti dengan hasil dari metode getCourseDetails() milik objek $course1. Karena $course1 adalah objek dari kelas OnlineCourse, maka metode getCourseDetails() akan mengembalikan teks "ini OnlineCourse".
 
-   - [full code abstraction]()
+   - [full code abstraction](https://github.com/shelalaa20/praktikum-web2/blob/main/jobsheet3/4-abstraction.php)
    - output program :
    ```
    Detail : ini OnlineCourse
