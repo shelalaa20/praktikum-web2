@@ -184,13 +184,115 @@ getCourseDetails() untuk memberikan detail yang berbeda.
 
    
 ### Tugas
+1. Implementasikan kelas Person sebagai induk dari Dosen dan Mahasiswa.
+```
+class Person {
+    protected $name;
+    
+    public function __construct($name) {
+        $this->name = $name;
+    }
 
+    public function getName() {
+        return $this->name;
+    }
 
+    public function getRole() {
+        echo "Person : ";
+    }
+}
+```
+2. Gunakan konsep Inheritance untuk membuat hierarki kelas yang memungkinkan
+Dosen dan Mahasiswa memiliki atribut dan metode yang sesuai dengan perannya.
+```
+class Student extends Person {
+    private $nim;
+```
+```
+class Teacher extends Person {
+    private $nidn;
+```
+3. Terapkan Polymorphism dengan membuat metode getRole() di kelas Person dan
+override metode ini di kelas Dosen dan Mahasiswa untuk menampilkan peran yang
+berbeda.
+```
+public function getRole() {
+        echo "Person : ";
+    }
+```
+```
+    public function getRole(){
+        echo "Student : ";
+    }
+```
+```
+    public function getRole(){
+        echo "Teacher : ";
+    }
 
-   
-   
-     
+```
+Metode getRole() sudah di-override dalam kelas Dosen dan Mahasiswa untuk menampilkan peran yang berbeda.
 
+5. Gunakan Encapsulation untuk melindungi atribut nidn di kelas Dosen dan nim di
+kelas Mahasiswa.
+```
+    private $nidn;
 
+    public function __construct($name, $nidn) {
+        parent::__construct($name);
+        $this->nidn = $nidn;
+    }
 
+    public function getNidn() {
+        return $this->nidn;
+    }
+```
+```
+$person2 = new Dosen("Rina", "230302045");
+echo $person2->getRole() . $person2->getName() . "<br>NIDN: " . $person2->getNidn() . "<hr>";
 
+```
+Atribut nidn dan nim sudah dideklarasikan sebagai private, sehingga hanya bisa diakses melalui metode getter.
+
+7. Buat kelas abstrak Jurnal dan implementasikan konsep Abstraction dengan
+membuat kelas turunan JurnalDosen dan JurnalMahasiswa yang masing-masing
+memiliki cara tersendiri untuk mengelola pengajuan jurnal.
+```
+abstract class Jurnal {
+    protected $judul;
+    protected $tanggalPengajuan;
+
+    public function __construct($judul, $tanggalPengajuan) {
+        $this->judul = $judul;
+        $this->tanggalPengajuan = $tanggalPengajuan;
+    }
+
+    abstract public function prosesPengajuan();
+}
+
+class JurnalDosen extends Jurnal {
+    public function prosesPengajuan() {
+        echo "Pengajuan Jurnal Dosen: ";
+        echo "Judul: " . $this->judul . ", Tanggal Pengajuan: " . $this->tanggalPengajuan . "<br>";
+    }
+}
+
+class JurnalMahasiswa extends Jurnal {
+    public function prosesPengajuan() {
+        echo "Pengajuan Jurnal Mahasiswa: ";
+        echo "Judul: " . $this->judul . ", Tanggal Pengajuan: " . $this->tanggalPengajuan . "<br>";
+    }
+}
+
+```
+   - [full code tugas](https://github.com/shelalaa20/praktikum-web2/blob/main/jobsheet3/5-tugas.php)
+   - output program :
+```
+Student : Shela
+NIM: 230302044
+Teacher : Rina
+NIDN: 230302045
+Pengajuan Jurnal Dosen: Judul: Penelitian Kesehatan, Tanggal Pengajuan: 2024-09-10
+Pengajuan Jurnal Mahasiswa: Judul: Tugas Akhir, Tanggal Pengajuan: 2024-09-11
+```
+      
