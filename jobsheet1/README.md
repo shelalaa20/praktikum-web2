@@ -34,15 +34,18 @@ Access Modifier adalah kontrol akses yang menentukan siapa yang bisa melihat ata
   <li>protected : hanya kelas induk dan turunan yang dapat mengakses.</li>
 </ul>
 
+<li>Methods</li>
+Metode adalah alat untuk mengimplementasikan aksi atau tindakan yang bisa dilakukan oleh objek. Dengan kata lain, metode mendefinisikan apa yang bisa dilakukan oleh objek yang diciptakan dari sebuah kelas.
 
   ```php
+
 public function tampilkanData() {
         return "Nama : $this->nama<br> 
                 Nim : $this->nim<br> 
                 Jurusan : $this->jurusan";
     }
 ```
-<li>Menampilkan data</li>
+<li>Instansiasi</li>
 
 ```
 //Instantsiasi Objek
