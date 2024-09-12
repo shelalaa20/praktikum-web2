@@ -112,6 +112,7 @@ NIM: 230102078
 Jurusan: Kedokteran Hewan
 ```
 <li>Inheritance</li>
+
 - Buat class Pengguna dengan atribut nama dan metode getNama().
 
 ```
