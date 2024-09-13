@@ -21,7 +21,6 @@ Program ini menggunakan konsep inheritance, enkapsulasi dan polymorphism dengan 
 
 
 ## Membuat kelas Database
-[klik untuk melihat full code]()
 - Deklarasi Variabel
 ```
 // Membuat class Database
@@ -147,7 +146,8 @@ class Student_classes extends Database {
 ```
   - Override getDataByAcademicYear(): Pada kelas Student_classes, method ini di-override untuk menampilkan data dengan filter tahun akademik 2023/2024.
   - Query SQL dengan Filter: $query = "SELECT ... WHERE student_classes.academic_year = '2023/2024'": Data yang diambil difilter hanya untuk tahun akademik 2023/2024 dengan menggunakan klausa WHERE.
-
+    
+[klik untuk melihat full code](TUGAS_2/koneksi.php)
   
 #### <b>Output index.php<b>
 ![Screenshot 2024-09-13 214431](https://github.com/user-attachments/assets/36acd9ef-5e8e-4589-ab14-58f61c4bf347)
