@@ -237,7 +237,7 @@ Tampilan Data Student Classes: Data dari tabel student_classes juga ditampilkan 
 ```
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 ```
-[klik untuk melihat full code](TUGAS2/index.php)
+[klik untuk melihat full code](https://github.com/shelalaa20/praktikum-web2/blob/main/TUGAS_2/index.php)
 
 Bootstrap: Di bagian <head>, Bootstrap diintegrasikan untuk memberikan style responsif pada aplikasi. Navbar, tabel, dan komponen lainnya menggunakan kelas Bootstrap agar tampil lebih baik di berbagai perangkat.
 
