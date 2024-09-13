@@ -19,8 +19,8 @@ Program ini menggunakan konsep inheritance, enkapsulasi dan polymorphism dengan 
     - Menampilkan gabungan data students dengan student_classes secara umum.
     - Menampilkan data students dengan student_classes yang hanya mencakup tahun akademik 2023/2024.
 
-
-## Membuat kelas Database
+## file (koneksi.php)
+### Membuat kelas Database
 - Deklarasi Variabel
 ```
 // Membuat class Database
@@ -144,11 +144,105 @@ class Student_classes extends Database {
     }
 }
 ```
+[klik untuk melihat full code](TUGAS_2/koneksi.php)
+
   - Override getDataByAcademicYear(): Pada kelas Student_classes, method ini di-override untuk menampilkan data dengan filter tahun akademik 2023/2024.
   - Query SQL dengan Filter: $query = "SELECT ... WHERE student_classes.academic_year = '2023/2024'": Data yang diambil difilter hanya untuk tahun akademik 2023/2024 dengan menggunakan klausa WHERE.
     
-[klik untuk melihat full code](TUGAS_2/koneksi.php)
-  
+## file (index.php)
+```
+<?php
+include 'koneksi.php'; // File yang berisi class Database
+// instansiasi objek database 
+$database = new Database();
+$allStudents = $database->getAllStudents();
+$allClasses = $database->getAllClasses();
+?>
+```
+- Instansiasi Objek: Di sini, objek Database diinstansiasi, dan method getAllStudents() serta getAllClasses() dipanggil untuk mendapatkan data dari tabel students dan student_classes. Data yang diperoleh disimpan dalam variabel $allStudents dan $allClasses.
+```
+<!--Membuat output table students-->
+    <h2 class="text-center mt-4">Data Students</h2>
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NIM</th>
+                <th>Nama</th>
+                <th>Alamat</th>
+                <th>Signature</th>
+                <th>No. Telepon</th>
+                <th>User ID</th>
+                <th>Student Class ID</th>
+                <th>Deleted At</th>
+                <th>Created At</th>
+                <th>Updated At</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($allStudents as $student): ?>
+                <tr>
+                    <td><?= $student['id'] ?></td>
+                    <td><?= $student['nim'] ?></td>
+                    <td><?= $student['name'] ?></td>
+                    <td><?= $student['address'] ?></td>
+                    <td><?= $student['signature'] ?></td>
+                    <td><?= $student['number_phone'] ?></td>
+                    <td><?= $student['user_id'] ?></td>
+                    <td><?= $student['student_class_id'] ?></td>
+                    <td><?= $student['deleted_at'] ?></td>
+                    <td><?= $student['created_at'] ?></td>
+                    <td><?= $student['updated_at'] ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+```
+Tampilan Data Students: Data dari tabel students ditampilkan dalam tabel HTML dengan menggunakan Bootstrap untuk membuat tampilan tabel lebih rapi dan responsif.
+```
+<!--Membuat output table student_classes-->
+    <h2 class="text-center mt-5">Data Student Classes</h2>
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>ID Kelas</th>
+                <th>Nama Kelas</th>
+                <th>Tahun Akademik</th>
+                <th>Program Studi ID</th>
+                <th>Deleted At</th>
+                <th>Created At</th>
+                <th>Updated At</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($allClasses as $class): ?>
+                <tr>
+                    <td><?= $class['id'] ?></td>
+                    <td><?= $class['name'] ?></td>
+                    <td><?= $class['academic_year'] ?></td>
+                    <td><?= $class['study_program_id'] ?></td>
+                    <td><?= $class['deleted_at'] ?></td>
+                    <td><?= $class['created_at'] ?></td>
+                    <td><?= $class['updated_at'] ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+```
+Tampilan Data Student Classes: Data dari tabel student_classes juga ditampilkan dalam tabel yang terpisah. Penggunaan tabel striped dari Bootstrap membuat tampilan lebih jelas dan mudah dibaca.
+```
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+```
+[klik untuk melihat full code](TUGAS2/index.php)
+
+Bootstrap: Di bagian <head>, Bootstrap diintegrasikan untuk memberikan style responsif pada aplikasi. Navbar, tabel, dan komponen lainnya menggunakan kelas Bootstrap agar tampil lebih baik di berbagai perangkat.
+
+## file (all_students.php)
+
 #### <b>Output index.php<b>
 ![Screenshot 2024-09-13 214431](https://github.com/user-attachments/assets/36acd9ef-5e8e-4589-ab14-58f61c4bf347)
 
