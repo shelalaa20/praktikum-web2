@@ -144,7 +144,7 @@ class Student_classes extends Database {
     }
 }
 ```
-[klik untuk melihat full code]([TUGAS_2/koneksi.php](https://github.com/shelalaa20/praktikum-web2/blob/main/TUGAS_2/koneksi.php))
+[klik untuk melihat full code]([TUGAS_2/koneksi.php](https://github.com/shelalaa20/praktikum-web2/blob/main/TUGAS_2/koneksi.php)
 
   - Override getDataByAcademicYear(): Pada kelas Student_classes, method ini di-override untuk menampilkan data dengan filter tahun akademik 2023/2024.
   - Query SQL dengan Filter: $query = "SELECT ... WHERE student_classes.academic_year = '2023/2024'": Data yang diambil difilter hanya untuk tahun akademik 2023/2024 dengan menggunakan klausa WHERE.
