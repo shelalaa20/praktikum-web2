@@ -159,7 +159,7 @@ $allStudents = $database->getAllStudents();
 $allClasses = $database->getAllClasses();
 ?>
 ```
-- Instansiasi Objek: Di sini, objek Database diinstansiasi, dan method getAllStudents() serta getAllClasses() dipanggil untuk mendapatkan data dari tabel students dan student_classes. Data yang diperoleh disimpan dalam variabel $allStudents dan $allClasses.
+Instansiasi Objek: Di sini, objek diinstansiasi, dan method getAllStudents() serta getAllClasses() dipanggil untuk mendapatkan data dari tabel students dan student_classes. Data yang diperoleh disimpan dalam variabel $allStudents dan $allClasses.
 ```
 <!--Membuat output table students-->
     <h2 class="text-center mt-4">Data Students</h2>
@@ -240,11 +240,67 @@ Tampilan Data Student Classes: Data dari tabel student_classes juga ditampilkan 
 [klik untuk melihat full code](https://github.com/shelalaa20/praktikum-web2/blob/main/TUGAS_2/index.php)
 
 Bootstrap: Di bagian <head>, Bootstrap diintegrasikan untuk memberikan style responsif pada aplikasi. Navbar, tabel, dan komponen lainnya menggunakan kelas Bootstrap agar tampil lebih baik di berbagai perangkat.
-
-## file (all_students.php)
-
 #### <b>Output index.php<b>
 ![Screenshot 2024-09-13 214431](https://github.com/user-attachments/assets/36acd9ef-5e8e-4589-ab14-58f61c4bf347)
+
+
+## file (all_students.php)
+```
+<?php
+include 'koneksi.php';
+// instansiasi objek student dengan polymorphism
+$student1 = new Students();
+$studentsAndClasses = $student1->getDataByAcademicYear(); // Pastikan fungsi ini mengembalikan data yang benar
+?>
+```
+Instansiasi Objek: Pada bagian ini, objek student1 diinstansiasi dari kelas Students. Method getDataByAcademicYear() kemudian dipanggil untuk mendapatkan data dari tabel students dan student_classes berdasarkan tahun akademik. Data yang diperoleh dari metode ini disimpan dalam variabel $studentsAndClasses.
+```
+        <h2>Data All Students</h2>
+        <a href="index.php" class="btn btn-warning">Kembali</a>
+    </div>
+
+    <?php if (!empty($studentsAndClasses)): ?>
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>ID Student</th>
+                    <th>NIM</th>
+                    <th>Nama</th>
+                    <th>Alamat</th>
+                    <th>Signature</th>
+                    <th>No. Telepon</th>
+                    <th>Nama Kelas</th>
+                    <th>Tahun Akademik</th>
+                    <th>Deleted At</th>
+                    <th>Created At</th>
+                    <th>Updated At</th>
+                </tr>
+            </thead>
+```
+Tabel Header (<thead>): Header tabel berisi kolom-kolom yang akan menampilkan informasi students
+```
+            <tbody>
+                <?php foreach ($studentsAndClasses as $student): ?>
+                    <tr>
+                        <td><?= $student['id'] ?></td>
+                        <td><?= $student['nim'] ?></td>
+                        <td><?= $student['name'] ?></td>
+                        <td><?= $student['address'] ?></td>
+                        <td><?= $student['signature'] ?></td>
+                        <td><?= $student['number_phone'] ?></td>
+                        <td><?= $student['class_name'] ?></td>
+                        <td><?= $student['academic_year'] ?></td>
+                        <td><?= $student['deleted_at'] ?></td>
+                        <td><?= $student['created_at'] ?></td>
+                        <td><?= $student['updated_at'] ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+
+```
+[klik untuk melihat full code]()
+Looping Data: Pada bagian ini, digunakan foreach untuk melakukan iterasi terhadap data $studentsAndClasses yang diperoleh dari database. Untuk setiap mahasiswa ($student), nilai-nilai dari kolom seperti id, nim, name, address, dll., akan dimasukkan ke dalam kolom tabel.
 
  #### <b>Output all_students.php<br>
 ![Screenshot 2024-09-13 214503](https://github.com/user-attachments/assets/0b868944-16cf-4667-8c33-e44340c7e6e3)
