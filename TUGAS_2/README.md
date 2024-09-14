@@ -375,3 +375,11 @@ $studentsAndClasses = $student2->getDataByAcademicYear(); // Pastikan metode ini
 
 #### <b>Output students_2023-2024<b>
 ![Screenshot 2024-09-13 214526](https://github.com/user-attachments/assets/1add6515-555f-4153-ad5b-51c0ff011eac)
+
+## Database
+![Screenshot (62)](https://github.com/user-attachments/assets/fc9024c2-39ba-44e8-90a1-9692f5abe17d)
+![Screenshot (63)](https://github.com/user-attachments/assets/7ab6ba6b-2f3f-4b69-9b7e-642bc6cd1b00)
+![Screenshot (64)](https://github.com/user-attachments/assets/c790e309-7561-4956-b6ab-fc8fc2254093)
+![Screenshot (65)](https://github.com/user-attachments/assets/99a3eff1-6329-4c9d-acb9-90dfea7fe9f1)
+![Screenshot (66)](https://github.com/user-attachments/assets/26262ae6-5e85-40d4-b191-c2085a5be96a)
+
