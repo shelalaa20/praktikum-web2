@@ -325,7 +325,7 @@ $studentsAndClasses = $student2->getDataByAcademicYear(); // Pastikan metode ini
         <a href="index.php" class="btn btn-warning">Kembali</a>
     </div>
 ```
-- <h2>: Menampilkan judul halaman, dalam hal ini "Data Students Tahun Akademik 2023/2024".
+- Menampilkan judul halaman, dalam hal ini "Data Students Tahun Akademik 2023/2024".
 - Tombol "Kembali": Tombol ini mengarahkan pengguna kembali ke halaman index.php. Tampilan tombol dikustomisasi dengan Bootstrap class btn btn-warning.
 ```
     <?php if (!empty($studentsAndClasses)): ?>
