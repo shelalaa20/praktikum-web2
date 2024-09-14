@@ -1,4 +1,4 @@
-}# Tugas 2
+# Tugas 2
 Tugas ini merupakan implementasi untuk menampilkan data students dan student_classes dari database menggunakan pendekatan PHP OOP (Object-Oriented Programming). 
 
 Program ini menggunakan konsep inheritance, enkapsulasi dan polymorphism dengan memanfaatkan beberapa kelas turunan yang meng-override method dari kelas induk.
@@ -299,7 +299,7 @@ Tabel Header (<thead>): Header tabel berisi kolom-kolom yang akan menampilkan in
         </table>
 
 ```
-[klik untuk melihat full code](TUGAS_2/all_students.php)
+[klik untuk melihat full code](https://github.com/shelalaa20/praktikum-web2/blob/main/TUGAS_2/all_students.php)
 
 Looping Data: Pada bagian ini, digunakan foreach untuk melakukan iterasi terhadap data $studentsAndClasses yang diperoleh dari database. Untuk setiap mahasiswa ($student), nilai-nilai dari kolom seperti id, nim, name, address, dll., akan dimasukkan ke dalam kolom tabel.
 
@@ -307,8 +307,71 @@ Looping Data: Pada bagian ini, digunakan foreach untuk melakukan iterasi terhada
 ![Screenshot 2024-09-13 214503](https://github.com/user-attachments/assets/0b868944-16cf-4667-8c33-e44340c7e6e3)
 
 ##  file (students_2023-2024.php)
+```
+<?php
+include 'koneksi.php';
+// instansiasi objek student dengan polymorphism
+$student2 = new Student_classes();
+$studentsAndClasses = $student2->getDataByAcademicYear(); // Pastikan metode ini mengembalikan data yang sesuai
+?>
+```
+- include 'koneksi.php';: Menyertakan file koneksi.php yang digunakan untuk menghubungkan ke database.
+- Instansiasi Objek: Objek $student2 dari kelas Student_classes diinstansiasi. Ini memungkinkan Anda mengakses method getDataByAcademicYear() untuk mengambil data mahasiswa beserta informasi kelas dari tabel student_classes.
+- Polymorphism: Dalam konteks ini, jika Student_classes adalah turunan dari kelas lain atau menggunakan antarmuka yang sama dengan Students, maka metode yang dipanggil dapat berbeda tergantung dari implementasi kelas tersebut.
+- Pengambilan Data: Data mahasiswa dan kelas disimpan dalam variabel $studentsAndClasses. Method getDataByAcademicYear() bertujuan untuk mengambil data students yang terdaftar pada tahun akademik 2023/2024.
+ ``` 
+    <div class="d-flex justify-content-between mb-3">
+        <h2>Data Students Tahun Akademik 2023/2024</h2>
+        <a href="index.php" class="btn btn-warning">Kembali</a>
+    </div>
+```
+- <h2>: Menampilkan judul halaman, dalam hal ini "Data Students Tahun Akademik 2023/2024".
+- Tombol "Kembali": Tombol ini mengarahkan pengguna kembali ke halaman index.php. Tampilan tombol dikustomisasi dengan Bootstrap class btn btn-warning.
+```
+    <?php if (!empty($studentsAndClasses)): ?>
+```
+- Pengecekan ini memastikan bahwa data dari variabel $studentsAndClasses tidak kosong. Jika data tersedia, tabel akan ditampilkan. Jika tidak, akan muncul pesan "Data tidak ditemukan".
+```
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>ID Student</th>
+                    <th>NIM</th>
+                    <th>Nama</th>
+                    <th>Alamat</th>
+                    <th>Signature</th>
+                    <th>No. Telepon</th>
+                    <th>Nama Kelas</th>
+                    <th>Tahun Akademik</th>
+                    <th>Deleted At</th>
+                    <th>Created At</th>
+                    <th>Updated At</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($studentsAndClasses as $student): ?>
+                    <tr>
+                        <td><?= $student['id'] ?></td>
+                        <td><?= $student['nim'] ?></td>
+                        <td><?= $student['name'] ?></td>
+                        <td><?= $student['address'] ?></td>
+                        <td><?= $student['signature'] ?></td>
+                        <td><?= $student['number_phone'] ?></td>
+                        <td><?= $student['class_name'] ?></td>
+                        <td><?= $student['academic_year'] ?></td>
+                        <td><?= $student['deleted_at'] ?></td>
+                        <td><?= $student['created_at'] ?></td>
+                        <td><?= $student['updated_at'] ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
 
-[klik untuk melihat full code](TUGAS_2/students_2023-2024.php)
+```
+- Tabel: Tabel ini menampilkan data mahasiswa dan kelas, termasuk kolom ID Student, NIM, Nama, Alamat, Signature, No. Telepon, Nama Kelas, Tahun Akademik, Deleted At, Created At, dan Updated At.
+- Data Iterasi: Menggunakan loop foreach, setiap item dalam $studentsAndClasses (data mahasiswa) akan ditampilkan dalam tabel.
+  
+[klik untuk melihat full code](https://github.com/shelalaa20/praktikum-web2/blob/main/TUGAS_2/students_2023-2034.php)
 
 #### <b>Output students_2023-2024<b>
 ![Screenshot 2024-09-13 214526](https://github.com/user-attachments/assets/1add6515-555f-4153-ad5b-51c0ff011eac)
