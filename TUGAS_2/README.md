@@ -1,4 +1,4 @@
-# Tugas 2
+}# Tugas 2
 Tugas ini merupakan implementasi untuk menampilkan data students dan student_classes dari database menggunakan pendekatan PHP OOP (Object-Oriented Programming). 
 
 Program ini menggunakan konsep inheritance, enkapsulasi dan polymorphism dengan memanfaatkan beberapa kelas turunan yang meng-override method dari kelas induk.
@@ -299,11 +299,16 @@ Tabel Header (<thead>): Header tabel berisi kolom-kolom yang akan menampilkan in
         </table>
 
 ```
-[klik untuk melihat full code]()
+[klik untuk melihat full code](TUGAS_2/all_students.php)
+
 Looping Data: Pada bagian ini, digunakan foreach untuk melakukan iterasi terhadap data $studentsAndClasses yang diperoleh dari database. Untuk setiap mahasiswa ($student), nilai-nilai dari kolom seperti id, nim, name, address, dll., akan dimasukkan ke dalam kolom tabel.
 
  #### <b>Output all_students.php<br>
 ![Screenshot 2024-09-13 214503](https://github.com/user-attachments/assets/0b868944-16cf-4667-8c33-e44340c7e6e3)
+
+##  file (students_2023-2024.php)
+
+[klik untuk melihat full code](TUGAS_2/students_2023-2024.php)
 
 #### <b>Output students_2023-2024<b>
 ![Screenshot 2024-09-13 214526](https://github.com/user-attachments/assets/1add6515-555f-4153-ad5b-51c0ff011eac)
